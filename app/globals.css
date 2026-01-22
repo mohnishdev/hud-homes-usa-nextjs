@@ -1,21 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-red: #c11a00;
-  --color-dark-black: #000814;
-  --color-light-bg: #f5f6fa;
-  --color-testimonial-bg: #dbdde9;
+  --color-brand-red: #e31c23;
+  --color-dark-black: #010322;
+  --color-light-bg: #f7f8fa;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-border-light: #cbd5e1;
   --color-dark-bg: #1a1a1a;
-  --color-border-slate: #1e293b;
   
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 991px;
 }
 
+@layer components {
+  /* Floating Input Components - Used in FloatingInput.js */
+  .form-input {
+    @apply bg-white w-full h-[45px] pt-[1.625rem] pb-[0.625rem] px-3 text-lg border border-[#CBD5E1] rounded focus:border-black focus:outline-none focus:ring-[0.2rem] focus:ring-black/10 max-sm:text-base;
+  }
+
+  .form-label {
+    @apply absolute left-3 top-4 text-base text-[#64748B] transition-all max-sm:text-sm pointer-events-none;
+  }
+
+  /* Typography Components - Reusable text styles */
+  .text-testimonial {
+    @apply text-base leading-[1.6] text-[#333333] m-0 mb-[15px] font-['Helvetica',Arial,sans-serif] max-sm:text-[15px];
+  }
+
+  .text-testimonial-author {
+    @apply text-sm font-bold text-[#333333] m-0 font-['Helvetica',Arial,sans-serif] max-sm:text-[13px];
+  }
+
+  /* Icon Size Utilities */
+  .icon-testimonial {
+    @apply w-[22px] h-[22px] fill-[#E31C23] text-[#E31C23] max-sm:w-[18px] max-sm:h-[18px];
+  }
+}
+
 @layer utilities {
-  .step2-hidden {
-    display: none !important;
+  /* Screen reader only - used in PropertyHeading.js and PropertyForm.js for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
 }
 
@@ -25,8 +60,8 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--color-light-bg);
-  color: #0f172a;
+  background: #f7f8fa;
+  color: #1e293b;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
